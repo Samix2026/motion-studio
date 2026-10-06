@@ -292,9 +292,11 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
 
 ## License
 
-Apache License 2.0 — see [`LICENSE`](LICENSE). Third-party components
-(HyperFrames, fonts, GSAP) keep their own licenses, and company names in brand
-profiles are trademarks of their owners — see [`NOTICE`](NOTICE).
+Licensed under the Apache License 2.0 — see [`LICENSE`](LICENSE).
+
+Third-party components, including HyperFrames, fonts, and GSAP, remain subject
+to their own licenses. Company and product names referenced in brand profiles
+are trademarks of their respective owners — see [`NOTICE`](NOTICE).
 
 Created and maintained by Sami Al Mohaimeed
 ([@SamiBizConsult](https://x.com/SamiBizConsult)).
