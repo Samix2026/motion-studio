@@ -1,0 +1,46 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unittest:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.9"
+          - os: ubuntu-latest
+            python: "3.13"
+          - os: macos-latest
+            python: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install FFmpeg
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            sudo apt-get update && sudo apt-get install -y ffmpeg
+          else
+            brew install ffmpeg
+          fi
+      # Browser/render tests (MS_RENDER_TESTS=1) and the optional tracer test
+      # are skipped here: they need npx hyperframes and Chrome.
+      - name: Run test suites
+        run: |
+          set -e
+          for d in studio design timing narration review costgate reference tools templates/tech-news-ar/tools; do
+            python3 -m unittest discover -s "$d/tests"
+          done

@@ -1,0 +1,76 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+.cache_ggshield
+
+# Build/cache/temp
+dist/
+build/
+.cache/
+.next/
+tmp/
+temp/
+*.log
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Agent skills installed locally (HyperFrames skills are an external
+# dependency: see README "Prerequisites"; restore with skills-lock.json)
+.agents/
+
+# Machine-specific configuration
+tools/launchd/*.plist
+
+# Local projects (each video is a project under videos/)
+videos/
+
+# Pipeline state written next to a composition
+templates/**/production/
+tests/**/production/
+
+# Motion Studio generated output
+**/.thumbnails/
+**/renders/
+**/snapshots/
+**/contact-sheet.jpg
+**/contact-sheet.png
+
+# Rendered media (demo media is published outside Git)
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# Generated review artifacts
+review/vision_inputs/
+
+# Generated per-project state/evidence
+review/state/*.json
+review/reports/*
+!review/reports/.gitkeep
+review/proposals/*.json
+costgate/state/*.json
+costgate/reports/*.md
+
+# Test/eval outputs
+tests/elevenlabs/

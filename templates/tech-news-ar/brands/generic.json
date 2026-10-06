@@ -1,0 +1,44 @@
+{
+  "id": "generic",
+  "company": "Generic",
+  "aliases": [],
+  "colorConfidence": "not-applicable",
+  "colorSources": [],
+  "officialColors": {},
+  "tokens": {
+    "primary": "#ffffff",
+    "secondary": "#9c9c9c",
+    "background": "#0a0a0a",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #181818 0%, #0d0d0d 55%, #0a0a0a 100%)",
+    "surface": "#121212",
+    "text": "#dcdcdc",
+    "muted": "#9c9c9c",
+    "accentGradient": "linear-gradient(135deg, #ffffff 0%, #a6a6a6 100%)",
+    "borderColor": "#2a2a2a",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "26px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#ffffff",
+    "creditColor": "#8c8c8c",
+    "progressFill": "#ffffff"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": false,
+    "placements": [],
+    "note": "Neutral, achromatic. No company logo. Only for unbranded subjects, stories with no dominant company, or an explicit user-approved neutral treatment."
+  },
+  "notes": "Achromatic neutral palette (every value is a gray). Means the subject has no applicable brand identity; never a fallback for a named product whose identity was not resolved."
+}

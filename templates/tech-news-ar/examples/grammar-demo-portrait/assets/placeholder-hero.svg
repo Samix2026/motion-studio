@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Placeholder hero image">
+  <defs>
+    <linearGradient id="hero-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c2430"/>
+      <stop offset="1" stop-color="#0c1016"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#hero-bg)"/>
+  <path d="M0 540 L1280 430 L1280 720 L0 720 Z" fill="#141b24"/>
+  <path d="M0 600 L1280 520" stroke="#3a4656" stroke-width="3" stroke-dasharray="48 36" fill="none"/>
+  <rect x="420" y="330" width="440" height="130" rx="46" fill="#2b3644"/>
+  <path d="M510 330 L570 262 L740 262 L800 330 Z" fill="#364353"/>
+  <circle cx="520" cy="462" r="44" fill="#0c1016" stroke="#56657a" stroke-width="8"/>
+  <circle cx="760" cy="462" r="44" fill="#0c1016" stroke="#56657a" stroke-width="8"/>
+  <circle cx="640" cy="240" r="16" fill="#8fa3bd"/>
+  <text x="640" y="660" text-anchor="middle" font-family="monospace" font-size="26" letter-spacing="6" fill="#8fa3bd">PLACEHOLDER · SUPPLY YOUR OWN MEDIA</text>
+</svg>

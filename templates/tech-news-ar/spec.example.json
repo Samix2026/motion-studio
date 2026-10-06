@@ -1,0 +1,15 @@
+{
+  "scenes": [
+    { "id": "hook", "frame_start": 0, "frame_end": 90, "entrance": "mask_reveal", "hold": "1.0s",
+      "exit": "hard_cut", "review_frames": [45] },
+    { "id": "reveal", "frame_start": 90, "frame_end": 240, "entrance": "fade_scale", "exit": "fade_out",
+      "transition": "hard_cut", "depends_on": ["hook"], "review_frames": [200] }
+  ],
+  "tracks": {
+    "camera.x": [[90, 0], [180, 120], [239, 120]]
+  },
+  "discontinuities": [
+    { "kind": "whip", "frames": [176, 184], "property": "camera.*", "note": "whip into the detail" }
+  ],
+  "trace": { "selectors": { "camera": "#reveal .g-canvas" } }
+}

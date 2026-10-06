@@ -1,0 +1,47 @@
+{
+  "id": "nvidia",
+  "company": "NVIDIA",
+  "aliases": ["nvidia", "nvidia corp", "geforce", "cuda", "rtx"],
+  "colorConfidence": "verified",
+  "colorSources": ["https://design.nvidia.com/", "https://www.nvidia.com/"],
+  "officialColors": {
+    "primary": "#76b900",
+    "secondary": "#000000"
+  },
+  "tokens": {
+    "primary": "#76b900",
+    "secondary": "#000000",
+    "background": "#0a0d07",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #16200c 0%, #0c1109 55%, #080a06 100%)",
+    "surface": "#14180f",
+    "text": "#f2f5ee",
+    "muted": "#93a087",
+    "accentGradient": "linear-gradient(135deg, #76b900 0%, #3f6a00 100%)",
+    "borderColor": "#243019",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "18px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "800",
+    "headlineTracking": "-0.02em",
+    "highlightColor": "#a3d43f",
+    "creditColor": "#8a9481",
+    "progressFill": "#76b900"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "heavy-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official NVIDIA logo only, from the asset policy. Never recreate or recolor it."
+  },
+  "notes": "Verified green accent on near-black. UI neutrals are derived dark-theme values, not official brand colors. Inspired by NVIDIA's public identity; not an NVIDIA publication."
+}

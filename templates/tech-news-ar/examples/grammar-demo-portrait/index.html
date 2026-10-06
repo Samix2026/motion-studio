@@ -1,0 +1,211 @@
+<!doctype html>
+<!--
+  Scene-grammar demo (1080x1920). Starter for new projects: copy this folder,
+  keep lib/ and assets/fonts/ in sync with templates/tech-news-ar.
+  Content: sample tech-news copy with placeholder media (see sources.md). 6 grammars.
+-->
+<html lang="ar" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>NVIDIA robotaxi stack - grammar demo (portrait)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="lib/motion.js"></script>
+    <link rel="stylesheet" href="lib/type.css" />
+    <link rel="stylesheet" href="lib/grammar.css" />
+    <style>
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-arabic.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+      }
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-latin.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      :root {
+        /* brand:start — brands/nvidia.json */
+        --brand-primary: #76b900;
+        --brand-secondary: #000000;
+        --brand-background: #0a0d07;
+        --brand-background-gradient: radial-gradient(120% 90% at 50% 28%, #16200c 0%, #0c1109 55%, #080a06 100%);
+        --brand-surface: #14180f;
+        --brand-text: #f2f5ee;
+        --brand-muted: #93a087;
+        --brand-border-color: #243019;
+        --brand-radius: 18px;
+        --brand-headline-tracking: -0.01em;
+        --brand-highlight-color: #a3d43f;
+        --brand-credit-color: #a3ad98;
+        /* brand:end */
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--brand-background);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: var(--ms-font);
+        background: var(--brand-background-gradient);
+      }
+      .logo {
+        height: 36px;
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-format="portrait"
+      data-start="0"
+      data-duration="31"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- 1 — kinetic_word · hook (60% revealed at frame 0) -->
+      <section id="p1" class="clip g-scene" data-grammar="kinetic_word" data-variant="stack" data-beat-kind="hook" data-start="0" data-duration="4.5" data-track-index="1">
+        <div class="g">
+          <p id="p1w" class="t-display g-words">
+            <span class="w">الروبوتاكسي</span><span class="w">لا</span><span class="w">يعتمد</span><span class="w">على</span><span class="w hl">شريحة واحدة</span><span class="w">فقط</span>
+          </p>
+          <p id="p1s" class="t-secondary">تريد NVIDIA أن تكون موجودة في كل مرحلة من بناء السيارة الذاتية</p>
+        </div>
+      </section>
+
+      <!-- 2 — full_bleed_media · context -->
+      <section id="p2" class="clip g-scene" data-grammar="full_bleed_media" data-variant="bottom_band" data-beat-kind="context" data-start="4.5" data-duration="5" data-track-index="2">
+        <div class="g">
+          <figure class="g-media" id="p2media"><img src="assets/placeholder-hero.svg" alt="" /></figure>
+          <div class="g-scrim"></div>
+          <div class="g-text" id="p2t">
+            <h2 class="t-headline">ادعاء NVIDIA: الحضور في كل مرحلة</h2>
+            <p class="t-secondary">تقول الشركة إن كل برنامج روبوتاكسي رئيسي يعمل تجاريا اليوم يستخدم منظومتها</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 — screenshot_detail · product_visual (crop, pan between regions, spotlight) -->
+      <section id="p3" class="clip g-scene" data-grammar="screenshot_detail" data-variant="framed" data-beat-kind="product_visual" data-start="9.5" data-duration="7.5" data-track-index="3">
+        <div class="g">
+          <h2 id="p3h" class="t-headline">طبقات المنظومة</h2>
+          <div class="g-shot" id="p3shot" style="--shot-ar: 1920 / 1080">
+            <div class="g-canvas">
+              <img src="assets/placeholder-stack.svg" alt="" />
+              <div class="g-spot" id="p3spot" data-region="0.53,0.71,0.29,0.195"></div>
+            </div>
+          </div>
+          <p id="p3c" class="t-caption">من Cosmos إلى DRIVE Hyperion مع DRIVE AGX</p>
+          <p class="t-credit">المصدر: NVIDIA</p>
+        </div>
+      </section>
+
+      <!-- 4 — big_number · statistic -->
+      <section id="p4" class="clip g-scene" data-grammar="big_number" data-variant="offset" data-beat-kind="statistic" data-start="17" data-duration="4.5" data-track-index="4">
+        <div class="g">
+          <p id="p4n" class="t-stat">14</p>
+          <div id="p4r" class="g-rule"></div>
+          <p id="p4l" class="t-stat-label">كاميرا في منصة DRIVE Hyperion</p>
+          <p id="p4s" class="t-secondary">إلى جانب 9 رادارات و3 ليدار و12 مستشعرا فوق صوتي</p>
+        </div>
+      </section>
+
+      <!-- 5 — comparison · comparison (stacked for portrait) -->
+      <section id="p5" class="clip g-scene" data-grammar="comparison" data-variant="stacked" data-beat-kind="comparison" data-start="21.5" data-duration="6" data-track-index="5">
+        <div class="g">
+          <h2 id="p5h" class="t-headline">حاسوبان من المنظومة</h2>
+          <div class="g-cols">
+            <div class="g-col" id="p5a">
+              <p class="t-headline">التدريب</p>
+              <p class="t-secondary">حاسوب DGX يدرب نماذج القيادة على بيانات الأسطول</p>
+            </div>
+            <div class="g-divider" id="p5d"></div>
+            <div class="g-col is-accent" id="p5b">
+              <p class="t-headline">داخل السيارة</p>
+              <p class="t-secondary">منصة DRIVE Hyperion بحاسوب DRIVE AGX Thor مزدوج</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 — quote_or_statement · takeaway -->
+      <section id="p6" class="clip g-scene" data-grammar="quote_or_statement" data-variant="center" data-beat-kind="takeaway" data-start="27.5" data-duration="3.5" data-track-index="6">
+        <div class="g">
+          <p id="p6q" class="t-display g-quote">الخلاصة: NVIDIA في كل الطبقات</p>
+          <p id="p6s" class="t-secondary">من التدريب والمحاكاة إلى الحوسبة داخل السيارة</p>
+        </div>
+      </section>
+
+      <div class="g-chrome-top" id="chromeTop">
+        <span class="t-credit">تغطية مستقلة</span>
+        <img class="logo" src="assets/placeholder-logo.svg" alt="" />
+      </div>
+      <div class="g-chrome-bottom" id="chromeBottom">
+        <span class="t-credit">المصدر: NVIDIA</span>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#chromeTop", { opacity: 0.5 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo("#chromeBottom", { opacity: 0.5 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+
+      // 1 kinetic_word — hook already 60% revealed at frame 0
+      MS.enter.maskReveal(tl, "#p1w", 0, { start: 0.6, duration: 0.8 });
+      MS.enter.rtlSlide(tl, "#p1s", 0.6, { distance: 60 });
+
+      // 2 full_bleed_media — hard cut in, slow push-in
+      MS.camera.pushIn(tl, "#p2media img", 4.5, 5, { scale: 1.08 });
+      MS.enter.rtlSlide(tl, "#p2t", 4.7);
+      MS.exit.fadeOut(tl, "#p2 .g", 9.15);
+
+      // 3 screenshot_detail — frame the layer stack, pan to the board, spotlight it
+      MS.shot.place("#p3shot");
+      MS.enter.rtlSlide(tl, "#p3h", 9.6);
+      MS.shot.cropTo(tl, "#p3shot", MS.parseRegion("0.61,0.15,0.30,0.60"), 9.5);
+      MS.enter.fadeScale(tl, "#p3shot", 9.6);
+      MS.shot.panBetween(tl, "#p3shot", MS.parseRegion("0.61,0.15,0.30,0.60"), MS.parseRegion("0.53,0.71,0.29,0.195"), 11.2, 1.8);
+      MS.shot.spotlight(tl, "#p3spot", 13.2);
+      MS.enter.fadeScale(tl, "#p3c", 13.4);
+
+      // 4 big_number (offset right)
+      MS.enter.maskReveal(tl, "#p4n", 17.1, { duration: 0.7 });
+      MS.enter.lineDraw(tl, "#p4r", 17.5);
+      MS.enter.rtlSlide(tl, "#p4l", 17.7);
+      MS.enter.fadeScale(tl, "#p4s", 18.3);
+
+      // 5 comparison — top block, divider, bottom block
+      MS.enter.rtlSlide(tl, "#p5h", 21.6);
+      MS.enter.rtlSlide(tl, "#p5a", 22.0);
+      MS.enter.lineDraw(tl, "#p5d", 22.5);
+      MS.enter.rtlSlide(tl, "#p5b", 22.8);
+
+      // 6 quote_or_statement
+      MS.enter.fadeScale(tl, "#p6q", 27.6, { scale: 0.94, duration: 0.8 });
+      MS.enter.fadeScale(tl, "#p6s", 28.3);
+
+      MS.applyReviewAttributes(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

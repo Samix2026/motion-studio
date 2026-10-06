@@ -1,0 +1,123 @@
+/*
+  lib/type.css — Motion Studio typography system (copy lib/ into each project).
+
+  Bundled font: IBM Plex Sans Arabic, SIL Open Font License 1.1
+  (assets/fonts/OFL.txt). Its @font-face rules live INLINE in index.html
+  (url("assets/fonts/...")): HyperFrames lint requires project-root paths,
+  while a browser resolves url() in a linked stylesheet relative to lib/.
+  Never use system-only faces such as "SF Arabic" or "Geeza Pro" — they
+  silently fall back in headless Chrome renders.
+
+  Values mirror lib/type-scale.json; design/tests keep the two in sync.
+  Set data-format="portrait" | "landscape" on the composition root.
+*/
+
+:root {
+  --ms-font: "IBM Plex Sans Arabic", sans-serif;
+  /* secondary text is brighter than the brand muted token (readability) */
+  --ms-secondary: color-mix(in srgb, var(--brand-text, #dcdcdc) 80%, var(--brand-muted, #9c9c9c));
+  --secondary-scale: 1;
+  --media-scale: 1;
+}
+
+/* portrait 1080x1920 (default) */
+:root,
+[data-format="portrait"] {
+  --ts-display: 120px;
+  --ts-headline: 92px;
+  --ts-secondary: 50px;
+  --ts-caption: 40px;
+  --ts-credit: 30px;
+  --ts-handle: 32px;
+  --ts-stat: 260px;
+  --ts-stat-label: 46px;
+  --zone-chrome: 64px;
+  --zone-top: 200px;
+  --zone-side: 72px;
+  --zone-bottom: 320px;
+  --zone-gutter: 48px;
+}
+
+/* landscape 1920x1080 */
+[data-format="landscape"] {
+  --ts-display: 132px;
+  --ts-headline: 96px;
+  --ts-secondary: 54px;
+  --ts-caption: 42px;
+  --ts-credit: 32px;
+  --ts-handle: 30px;
+  --ts-stat: 240px;
+  --ts-stat-label: 48px;
+  --zone-chrome: 56px;
+  --zone-top: 150px;
+  --zone-side: 120px;
+  --zone-bottom: 130px;
+  --zone-gutter: 80px;
+}
+
+.t-display,
+.t-headline,
+.t-secondary,
+.t-caption,
+.t-credit,
+.t-handle,
+.t-stat,
+.t-stat-label {
+  font-family: var(--ms-font);
+  margin: 0;
+}
+.t-display {
+  font-size: var(--ts-display);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--brand-text, #dcdcdc);
+}
+.t-headline {
+  font-size: var(--ts-headline);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: var(--brand-headline-tracking, 0);
+  color: var(--brand-text, #dcdcdc);
+}
+.t-secondary {
+  font-size: calc(var(--ts-secondary) * var(--secondary-scale, 1));
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--ms-secondary);
+}
+.t-caption {
+  font-size: var(--ts-caption);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ms-secondary);
+}
+.t-credit {
+  font-size: var(--ts-credit);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--brand-credit-color, #a3a3ab);
+}
+.t-handle {
+  direction: ltr;
+  font-size: var(--ts-handle);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #d6d4cf;
+}
+.t-stat {
+  direction: ltr;
+  font-size: var(--ts-stat);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--brand-primary, #ffffff);
+}
+.t-stat-label {
+  font-size: var(--ts-stat-label);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--brand-text, #dcdcdc);
+}
+.hl {
+  color: var(--brand-highlight-color, var(--brand-primary, #ffffff));
+}

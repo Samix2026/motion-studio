@@ -1,0 +1,1 @@
+{ "name": "trace-fixture", "outputs": { "master": { "resolution": "320x180", "fps": 30, "duration_s": 3.0 } } }

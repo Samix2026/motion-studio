@@ -1,0 +1,48 @@
+Motion Studio
+Copyright 2026 Sami Al Mohaimeed
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The Apache-2.0 license above covers Motion Studio's own source code,
+documentation, templates and placeholder assets. It does not cover the
+third-party components listed below, which remain under their own terms.
+
+------------------------------------------------------------------------
+Third-party components
+------------------------------------------------------------------------
+
+HyperFrames (not bundled)
+  Motion Studio renders compositions with the HyperFrames CLI and packages
+  (https://github.com/heygen-com/hyperframes), licensed under the Apache
+  License 2.0. HyperFrames is fetched at run time through npx/npm, and its
+  agent skills are installed separately by the user. No HyperFrames source
+  code or skill files are distributed in this repository.
+
+Alexandria (bundled font files)
+  Copyright 2022 The Alexandria Project Authors
+  (https://github.com/Gue3bara/Alexandria).
+  SIL Open Font License 1.1. License text: the OFL-Alexandria.txt file next
+  to each copy of the font.
+
+IBM Plex Sans Arabic (bundled font files)
+  Copyright (c) 2017 IBM Corp. with Reserved Font Name "Plex".
+  SIL Open Font License 1.1. License text: the OFL.txt file next to each
+  copy of the font.
+
+GSAP (not bundled)
+  Templates and examples load GSAP from the jsDelivr CDN
+  (https://cdn.jsdelivr.net/npm/gsap@3.14.2/). GSAP is distributed by its
+  owner under the GSAP standard license (https://gsap.com/standard-license),
+  which is not an OSI open-source license. It is not redistributed here.
+
+------------------------------------------------------------------------
+Trademarks
+------------------------------------------------------------------------
+
+Company and product names that appear in brand profiles
+(templates/tech-news-ar/brands/), sample copy, tests and documentation are
+trademarks of their respective owners. They are used only to identify those
+companies and products. Motion Studio is not affiliated with, endorsed by or
+sponsored by any of them, and this license grants no rights in their names,
+logos or brand assets. Brand profiles contain colour and naming references
+only; no third-party logos or imagery are included.

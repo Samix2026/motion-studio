@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source": "word-timings",
+  "captions": [
+    {
+      "start_ms": 0,
+      "end_ms": 3413,
+      "text": "نستخدم OpenAI وClaude Code لبناء",
+      "word_count": 5
+    },
+    {
+      "start_ms": 3529,
+      "end_ms": 4899,
+      "text": "سير عمل ذكي،",
+      "word_count": 3
+    },
+    {
+      "start_ms": 5108,
+      "end_ms": 8429,
+      "text": "ونقارن مخرجات Gemini وHUMAIN Cloud",
+      "word_count": 5
+    },
+    {
+      "start_ms": 8754,
+      "end_ms": 10913,
+      "text": "قبل اعتمادها في الإنتاج.",
+      "word_count": 4
+    }
+  ]
+}

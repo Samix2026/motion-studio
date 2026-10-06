@@ -1,0 +1,139 @@
+/*
+  components/brand-frame.css — the fixed brand frame around the imagery.
+
+  Spec: ../VISUAL_SYSTEM.md and ../components/{logo-slot,lower-third,title,
+  bottom-line,source-credit}.md. Working port of the chrome validated by
+  cinematic-saudi-documentary-pilot, with text sizes reconciled to the
+  mobile-readable landscape floors in lib/type-scale.json (the one deliberate
+  change from the pilot: credit 24px -> 32px, handle 22px -> 30px, so no chrome
+  text drops below the documented floor).
+
+  Rules this file encodes:
+  - imagery is dominant: chrome lives only in the margins, never over the point
+    of interest, never a card/dashboard panel;
+  - one chrome element at a time: section-title and lower-third never animate
+    in together (../VISUAL_SYSTEM.md §What this system does not do);
+  - RTL is scoped to the text containers, never on <html>;
+  - --accent defaults to the official Saudi flag green and is never recolored
+    by the grade (../COLOR_GRADE.md §Flag protection).
+*/
+
+:root {
+  --accent: #006c35; /* Saudi flag green — never recolored by the grade */
+  --brand-paper: #f4f1ea;
+  --brand-credit: #d8d5cc;
+  --zone-chrome: 56px; /* top/right inset for logo slot + bottom line */
+  --zone-side: 120px; /* text-safe side padding */
+  --zone-bottom: 130px; /* text-safe bottom padding (lower third sits here) */
+}
+
+/* ---- logo slot (components/logo-slot.md) ---- */
+.logo-slot {
+  position: absolute;
+  top: var(--zone-chrome);
+  right: var(--zone-chrome);
+  width: 72px;
+  height: 72px;
+  opacity: 0.85;
+  z-index: 50;
+  border: 1.5px solid rgba(244, 241, 234, 0.55);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* CSS mark variant, used when no logo file is supplied */
+.logo-slot .mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 241, 234, 0.75);
+}
+
+/* ---- thin bottom accent line (components/bottom-line.md) ---- */
+.bottom-line {
+  position: absolute;
+  left: var(--zone-chrome);
+  right: var(--zone-chrome);
+  bottom: var(--zone-chrome);
+  height: 2px;
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+  transform-origin: right center; /* draws right-to-left, RTL-consistent */
+  z-index: 44;
+}
+
+/* ---- lower third (components/lower-third.md) ---- */
+.lower-third {
+  position: absolute;
+  left: var(--zone-side);
+  right: var(--zone-side);
+  bottom: var(--zone-bottom);
+  max-width: 1180px;
+  z-index: 45;
+}
+.lt-line {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--ms-font);
+  font-size: 44px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--brand-paper);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55); /* scrim, keeps text legible over the grade */
+}
+
+/* ---- small section title (components/title.md) ---- */
+.section-title {
+  position: absolute;
+  left: 50%;
+  bottom: 220px;
+  transform: translateX(-50%);
+  max-width: 1600px;
+  z-index: 46;
+}
+.title-line {
+  direction: rtl;
+  text-align: center;
+  font-family: var(--ms-font);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--brand-paper);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- source credit + handle (components/source-credit.md) ---- */
+.credit {
+  position: absolute;
+  left: var(--zone-side);
+  bottom: 96px;
+  direction: rtl;
+  font-family: var(--ms-font);
+  font-size: 32px; /* type-scale landscape credit floor: 6.5px at phone scale */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--brand-credit);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  z-index: 45;
+}
+.handle {
+  position: absolute;
+  right: var(--zone-chrome);
+  bottom: 24px;
+  direction: ltr;
+  font-family: var(--ms-font);
+  font-size: 30px; /* type-scale landscape handle size */
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--brand-paper);
+  background: rgba(11, 15, 12, 0.82);
+  padding: 6px 16px;
+  border-radius: 999px;
+  z-index: 45;
+}

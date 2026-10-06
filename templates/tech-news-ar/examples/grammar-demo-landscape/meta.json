@@ -1,0 +1,9 @@
+{
+  "id": "grammar-demo-landscape",
+  "name": "grammar-demo-landscape",
+  "brand": "nvidia",
+  "brandCompany": "NVIDIA",
+  "demo": true,
+  "format": "landscape",
+  "content_type": "tech_news"
+}

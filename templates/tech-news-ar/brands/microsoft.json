@@ -1,0 +1,47 @@
+{
+  "id": "microsoft",
+  "company": "Microsoft",
+  "aliases": ["microsoft", "msft", "azure", "windows", "copilot", "github", "linkedin"],
+  "colorConfidence": "verified",
+  "colorSources": ["https://brand.microsoft.com/", "https://www.microsoft.com/design/", "https://www.microsoft.com/"],
+  "officialColors": {
+    "primary": "#0078d4",
+    "palette": ["#f25022", "#7fba00", "#00a4ef", "#ffb900"]
+  },
+  "tokens": {
+    "primary": "#0078d4",
+    "secondary": "#f25022",
+    "background": "#1b1a19",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #262421 0%, #1b1a19 55%, #121110 100%)",
+    "surface": "#252423",
+    "text": "#ffffff",
+    "muted": "#a19f9d",
+    "accentGradient": "linear-gradient(135deg, #0078d4 0%, #00a4ef 100%)",
+    "borderColor": "#3b3a39",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "8px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#0078d4",
+    "creditColor": "#a19f9d",
+    "progressFill": "linear-gradient(90deg, #f25022 0%, #7fba00 33%, #00a4ef 66%, #ffb900 100%)"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "multi-color"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Microsoft logo (four squares) only. Do not rearrange or recolor the squares."
+  },
+  "notes": "Communication Blue #0078d4 and the four-square palette verified from official design/logo sources. UI neutrals follow Microsoft dark theme (approximate). Inspired by Microsoft's public identity; not a Microsoft publication."
+}

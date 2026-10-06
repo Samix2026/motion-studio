@@ -1,0 +1,47 @@
+{
+  "id": "xai",
+  "company": "xAI",
+  "aliases": ["xai", "x.ai", "grok", "x corp"],
+  "colorConfidence": "sampled-official",
+  "colorSources": ["https://x.ai/", "https://grok.com/"],
+  "officialColors": {
+    "themeLight": "#f9f8f7",
+    "themeDark": "#1e1f22"
+  },
+  "tokens": {
+    "primary": "#f9f8f7",
+    "secondary": "#7d7d7d",
+    "background": "#000000",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #1e1f22 0%, #0b0b0c 55%, #000000 100%)",
+    "surface": "#1e1f22",
+    "text": "#f9f8f7",
+    "muted": "#7d7d7d",
+    "accentGradient": "linear-gradient(135deg, #f9f8f7 0%, #7d7d7d 100%)",
+    "borderColor": "#2a2b2e",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "6px",
+    "gap": "44px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "0",
+    "highlightColor": "#ffffff",
+    "creditColor": "#7d7d7d",
+    "progressFill": "#f9f8f7"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official xAI mark only, monochrome. The identity is stark black/white; do not introduce a brand hue."
+  },
+  "notes": "xAI/Grok identity is monochrome; theme colors sampled from official theme-color metadata (light #f9f8f7, dark #1e1f22). No corporate brand hue. Inspired by xAI's public identity; not an xAI publication."
+}

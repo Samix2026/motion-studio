@@ -1,0 +1,59 @@
+{
+  "id": "herdr",
+  "company": "Herdr",
+  "aliases": ["herdr", "herdr.dev"],
+  "colorConfidence": "sampled-official",
+  "colorSources": [
+    "https://herdr.dev/css/style.css",
+    "https://herdr.dev/css/site.css",
+    "https://raw.githubusercontent.com/herdrdev/herdr/master/assets/screenshot.png"
+  ],
+  "officialColors": {
+    "terminalBackground": "#0c0c0b",
+    "terminalSidebar": "#131312",
+    "terminalAccent": "#4a9eff",
+    "siteSpot": "#cba6f7",
+    "terminalText": "#dedad0",
+    "terminalBorder": "#252522",
+    "stateWorking": "#e6b84a",
+    "stateBlocked": "#e05a5a",
+    "stateIdle": "#52c97a",
+    "stateDone": "#94e2d5"
+  },
+  "tokens": {
+    "primary": "#4a9eff",
+    "secondary": "#cba6f7",
+    "background": "#0c0c0b",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 26%, #17171a 0%, #111110 55%, #0c0c0b 100%)",
+    "surface": "#131312",
+    "text": "#eae8ee",
+    "muted": "#8a8a80",
+    "accentGradient": "linear-gradient(135deg, #4a9eff 0%, #cba6f7 100%)",
+    "borderColor": "#252522",
+    "borderWidth": "1px",
+    "borderStyle": "solid",
+    "radius": "8px",
+    "gap": "40px",
+    "imageFit": "contain",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#4a9eff",
+    "creditColor": "#8a8a80",
+    "progressFill": "#4a9eff"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "contain-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero", "outro-hero"],
+    "note": "Official Herdr logo only, from herdrdev/herdr assets. Do not recolor or redraw. The mark is dark ink on a light tile, which reads on the dark ground as-is."
+  },
+  "notes": "sampled-official: values sampled from herdr.dev's own terminal mock (css/style.css) and the official 1920x1080 screenshot. Herdr's product identity is terminal-first: near-black ground #0c0c0b, thin #252522 borders, restrained #4a9eff accent, monospace (JetBrains Mono, SIL OFL) for Latin/terminal text. UI neutrals are design-derived. Herdr's code is Apache-2.0; the logo/mark are trademarks. Inspired by Herdr's public identity; not a Herdr publication."
+}

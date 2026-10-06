@@ -1,0 +1,52 @@
+{
+  "provider_model": "fixture-v1",
+  "judgments": [
+    {
+      "dimension": "hook_strength",
+      "score": 2,
+      "scene": 1,
+      "frames": ["hook-0.00.png", "hook-0.50.png"],
+      "confidence": 0.7,
+      "rationale": "The opening frame shows media, but the headline band competes with the busiest part of the image.",
+      "suggested_operation": { "type": "swap_layout_variant", "scene": 1, "to": "top_band" }
+    },
+    {
+      "dimension": "screenshot_treatment",
+      "score": 3,
+      "scene": 1,
+      "frames": ["midpoint-01.png"],
+      "rationale": "The hero media is static for the whole scene.",
+      "suggested_operation": { "type": "add_push_in", "scene": 1, "target": "#s1img", "scale": 1.06 }
+    },
+    {
+      "dimension": "mobile_readability",
+      "score": 3,
+      "scene": 3,
+      "frames": ["midpoint-03.png"],
+      "rationale": "Secondary text in the comparison looks small at phone size.",
+      "suggested_operation": { "type": "enlarge_secondary_text", "scene": 3, "factor": 1.15 }
+    },
+    {
+      "dimension": "empty_space",
+      "score": 4,
+      "scene": 2,
+      "frames": ["midpoint-02.png"],
+      "rationale": "The number is balanced; the reviewer wrongly asks for a hard fail and a px edit.",
+      "hard_fail": true,
+      "suggested_operation": { "type": "change_text_size", "class": "sub", "to": 80 }
+    },
+    {
+      "dimension": "visual_repetition",
+      "score": 4,
+      "scene": null,
+      "frames": ["contact-sheet.png"],
+      "rationale": "Scenes use distinct layouts.",
+      "suggested_operation": { "type": "shell_command", "cmd": "rm -rf /" }
+    },
+    {
+      "dimension": "made_up_dimension",
+      "score": 1,
+      "rationale": "Not a supported dimension."
+    }
+  ]
+}

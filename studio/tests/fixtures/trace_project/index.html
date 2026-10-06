@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Trace fixture: every motion is a finite CSS animation (seekable by the
+     HyperFrames CSS adapter); 3 s at 30 fps = 90 frames. Deliberate defects:
+     #glitch one-frame spike at frame 15, #jumper step at frame 30,
+     #flash one-frame opacity dip at frame 60, #camera whip at frames 72-75. -->
+<style>
+  body { margin: 0; background: #111; }
+  #root { position: relative; width: 320px; height: 180px; overflow: hidden; background: #111; }
+  .clip { position: absolute; inset: 0; }
+  .box { position: absolute; width: 20px; height: 20px; background: #eee; }
+  #pan { left: 10px; top: 10px; animation: pan 3s linear both; }
+  #glitch { left: 40px; top: 40px; animation: glitch 3s step-end both; }
+  #jumper { left: 70px; top: 70px; animation: jumper 3s step-end both; }
+  #flash { left: 100px; top: 100px; animation: flash 3s step-end both; }
+  #camera { left: 10px; top: 140px; animation: whip 3s linear both; }
+  @keyframes pan { from { transform: translateX(0); } to { transform: translateX(100px); } }
+  @keyframes glitch { 0% { transform: translateY(0); } 16.5% { transform: translateY(120px); }
+                      17.5% { transform: translateY(0); } 100% { transform: translateY(0); } }
+  @keyframes jumper { 0% { transform: translateX(0); } 33.2% { transform: translateX(150px); }
+                      100% { transform: translateX(150px); } }
+  @keyframes flash { 0% { opacity: 1; } 66.5% { opacity: 0; } 67.5% { opacity: 1; } 100% { opacity: 1; } }
+  @keyframes whip { 0% { transform: translateX(0); } 80% { transform: translateX(0); }
+                    82% { transform: translateX(330px); } 83.4% { transform: translateX(300px); }
+                    100% { transform: translateX(300px); } }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-no-timeline data-width="320" data-height="180" data-duration="3">
+  <section id="s1" class="clip" data-start="0" data-duration="3" data-track-index="0">
+    <div id="pan" class="box"></div>
+    <div id="glitch" class="box"></div>
+    <div id="jumper" class="box"></div>
+    <div id="flash" class="box"></div>
+    <div id="camera" class="box"></div>
+  </section>
+</div>
+</body>
+</html>

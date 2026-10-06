@@ -1,0 +1,48 @@
+/*
+  components/cinematic-frame.css — full-bleed media frame + Stage A per-shot
+  correction.
+
+  Spec: ../components/cinematic-media-frame.md and ../COLOR_GRADE.md §Stage A.
+  Working port of the frame used by cinematic-saudi-documentary-pilot.
+
+  Two-stage pipeline:
+    Stage A (here)  — per-shot corrective values, set per frame via --corr-*,
+                      applied on the media element inside .cine-frame;
+    Stage B (components/color-grade.css) — the single global grade applied once
+                      at the composition root, after Stage A.
+
+  Stage A values are corrective, not stylistic: leave a lever at its neutral
+  default (1 / none) when the shot needs no correction. Stay inside
+  ../COLOR_GRADE.md §Stage A ranges; a value outside them means the source is
+  too far off and should be re-exported rather than corrected harder.
+
+  Never boxed as a card: edge-to-edge, no radius, no border, no card surface —
+  the "dashboard/card look" is explicitly out of bounds (../TEMPLATE_RULES.md
+  §1, ../VISUAL_SYSTEM.md §Full-bleed media).
+*/
+
+.cine-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--cine-base, #0b0f0c); /* dark-green-neutral, never pure black */
+}
+
+.cine-frame img,
+.cine-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  /* Stage A — per-shot correction. Set --corr-* on the frame or the media. */
+  filter: brightness(var(--corr-exposure, 1)) contrast(var(--corr-contrast, 1)) saturate(var(--corr-saturation, 1))
+    var(--corr-white-balance, none);
+}
+
+/* A <video> is always muted; its sound lives on a separate <audio>
+   (../../AUDIO_DESIGN.md §7). Never crossorigin. */
+.cine-frame video {
+  background: var(--cine-base, #0b0f0c);
+}

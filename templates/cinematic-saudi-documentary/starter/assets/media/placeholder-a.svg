@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Placeholder still A">
+  <defs>
+    <linearGradient id="a-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fb4cc"/>
+      <stop offset="0.55" stop-color="#c3d4dc"/>
+      <stop offset="1" stop-color="#22302c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#a-sky)"/>
+  <circle cx="1380" cy="300" r="110" fill="#e8f0f2" opacity="0.7"/>
+  <path d="M0 700 L360 620 L700 700 L1040 600 L1380 700 L1720 640 L1920 700 L1920 1080 L0 1080 Z" fill="#2c3a36" opacity="0.9"/>
+  <path d="M0 820 L300 760 L640 840 L980 740 L1320 840 L1660 780 L1920 840 L1920 1080 L0 1080 Z" fill="#16211f" opacity="0.95"/>
+  <rect y="840" width="1920" height="240" fill="#0b0f0c" opacity="0.6"/>
+</svg>

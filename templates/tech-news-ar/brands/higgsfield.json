@@ -1,0 +1,89 @@
+{
+  "id": "higgsfield",
+  "company": "Higgsfield",
+  "aliases": ["higgsfield", "higgsfield ai", "ai motion designer"],
+  "colorConfidence": "verified",
+  "colorSources": [
+    "https://higgsfield.ai/",
+    "https://higgsfield.ai/ai-motion-designer",
+    "https://static.higgsfield.ai/plugins/higgsfield-logo-filled.svg",
+    "https://static.higgsfield.ai/ai-motion-designer/og.webp",
+    "https://assets.higgsfield.ai/tanstack/assets/ (official design-token CSS)"
+  ],
+  "officialColors": {
+    "primary": "#d1fe17",
+    "secondary": "#ff005b",
+    "tertiary": "#9ce6f3",
+    "logoGlyph": "#1a1a1a",
+    "limeScale": ["#e1fe68", "#d1fe17", "#b2d814", "#8ead10"]
+  },
+  "tokens": {
+    "primary": "#d1fe17",
+    "secondary": "#ff005b",
+    "background": "#131416",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #1c1e21 0%, #131416 55%, #0c0d0e 100%)",
+    "surface": "#1c1e21",
+    "text": "#ffffff",
+    "muted": "#828282",
+    "accentGradient": "linear-gradient(135deg, #d1fe17 0%, #b2d814 100%)",
+    "borderColor": "#ffffff1a",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "24px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#d1fe17",
+    "creditColor": "#828282",
+    "progressFill": "#d1fe17"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Higgsfield mark only (lime tile #d1fe17 with #1a1a1a glyph), as published at static.higgsfield.ai. Never recreate, recolor, or rearrange it."
+  },
+  "notes": "Dark-first identity. Lime #d1fe17 is exact: it is the fill of the official logo SVG and the value of --hf-color-lime-500 / --hf-color-brand-primary in Higgsfield's official design tokens. Pink #ff005b (brand secondary) and cyan #9ce6f3 (brand tertiary) are exact official token values. UI neutrals are exact tokens (background #131416 = cool-400, surface #1c1e21 = cool-300, text #ffffff, muted #828282 = grey-300). Gradients, border width, radius and gap are design choices; see provenance. Inspired by Higgsfield's public identity; not a Higgsfield publication.",
+  "provenance": {
+    "exact": {
+      "description": "Directly observed in official Higgsfield assets (logo SVG fills) or official design-token CSS served from assets.higgsfield.ai.",
+      "values": {
+        "primary #d1fe17": "higgsfield-logo-filled.svg fill + --hf-color-lime-500 + --hf-color-brand-primary + --color-font-brand",
+        "logoGlyph #1a1a1a": "higgsfield-logo-filled.svg glyph fill + --hf-color-grey-550",
+        "secondary #ff005b": "--color-font-brand-secondary + --color-surface-brand-secondary + --color-icon-brand-secondary",
+        "tertiary #9ce6f3": "--color-brand-tertiary",
+        "background #131416": "--hf-color-background-primary (cool-400)",
+        "surface #1c1e21": "--hf-color-background-secondary (cool-300)",
+        "text #ffffff": "--hf-color-text-primary (grey-050)",
+        "muted #828282": "--hf-color-text-secondary (grey-300)",
+        "border #ffffff1a": "--hf-color-border-default (transparent-light-10)",
+        "radius 24px": "--hf-radius-600 (large --q-card-radius variant)"
+      }
+    },
+    "approximate": {
+      "description": "No exact brand-spec value observed; derived from the exact official tokens above.",
+      "values": {
+        "backgroundGradient": "Design derivation of background #131416 and cool neutrals; endpoint #0c0d0e is an estimate.",
+        "accentGradient": "Design derivation between exact lime-500 #d1fe17 and lime-600 #b2d814.",
+        "borderWidth 2px, gap 40px, headlineWeight/headlineTracking, traits": "Template design choices, not brand values."
+      },
+      "samplingMethod": "Read official site HTML theme-color meta and downloaded the official design-token CSS from assets.higgsfield.ai; downloaded and sampled the official OG image (static.higgsfield.ai/ai-motion-designer/og.webp, 1200x676) with Python/PIL. The OG creative is a light marketing image (dominant #ffffff and exact #d1fe17) and was not used as the UI theme; the dark-first theme comes from the site's official tokens and theme-color (#030304 home, #0f1113 motion page)."
+    },
+    "sources": [
+      "https://higgsfield.ai/ (theme-color #030304)",
+      "https://higgsfield.ai/ai-motion-designer (theme-color #0f1113; og.webp)",
+      "https://static.higgsfield.ai/plugins/higgsfield-logo-filled.svg",
+      "https://static.higgsfield.ai/ai-motion-designer/og.webp",
+      "https://assets.higgsfield.ai/tanstack/assets/ (official CSS design tokens --hf-color-*)"
+    ]
+  }
+}

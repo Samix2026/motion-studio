@@ -1,0 +1,16 @@
+{
+  "observed": {
+    "duration_seconds": 18.0,
+    "scene_count": 9,
+    "average_scene_duration": 2.0,
+    "first_cut_seconds": 1.2
+  },
+  "inferred": {
+    "transition_style": "hard cuts with light motion"
+  },
+  "script": "DO-NOT-COPY-THIS-SCRIPT",
+  "transcript": "DO-NOT-COPY-THIS-TRANSCRIPT",
+  "logo": "ACME-LOGO-PATH",
+  "brand": "ACME-BRAND",
+  "channel": "ACME-CHANNEL"
+}

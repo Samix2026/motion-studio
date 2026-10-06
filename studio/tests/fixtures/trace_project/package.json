@@ -1,0 +1,5 @@
+{
+  "name": "trace-fixture",
+  "private": true,
+  "scripts": { "check": "npx --yes hyperframes@0.8.91 check" }
+}

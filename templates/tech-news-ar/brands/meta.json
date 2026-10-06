@@ -1,0 +1,47 @@
+{
+  "id": "meta",
+  "company": "Meta",
+  "aliases": ["meta", "facebook", "instagram", "whatsapp", "threads", "llama"],
+  "colorConfidence": "verified",
+  "colorSources": ["https://about.meta.com/brand/resources/", "https://www.meta.com/"],
+  "officialColors": {
+    "primary": "#0064e0",
+    "secondary": "#0082fb"
+  },
+  "tokens": {
+    "primary": "#0064e0",
+    "secondary": "#0082fb",
+    "background": "#10161c",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #14243a 0%, #0c1520 55%, #080b10 100%)",
+    "surface": "#1c2b33",
+    "text": "#ffffff",
+    "muted": "#9aa4ab",
+    "accentGradient": "linear-gradient(135deg, #0064e0 0%, #0082fb 100%)",
+    "borderColor": "#2b3a44",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "22px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#0082fb",
+    "creditColor": "#8f9aa1",
+    "progressFill": "linear-gradient(90deg, #0064e0 0%, #0082fb 100%)"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "gradient"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Meta or product mark only. Do not recreate the gradient lockup or campaign art."
+  },
+  "notes": "Meta blue #0064e0 / #0082fb verified from official brand resources. UI neutrals are derived. Inspired by Meta's public identity; not a Meta publication."
+}

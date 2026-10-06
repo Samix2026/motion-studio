@@ -1,0 +1,201 @@
+<!doctype html>
+<!--
+  cinematic-saudi-documentary — STARTER (working reference implementation).
+
+  Copy this folder into videos/<slug>/ as the project skeleton, then replace:
+    - the four placeholder scenes with the real scene map;
+    - assets/media/placeholders with checkpoint-passing assets (TEMPLATE_RULES §1);
+    - the four lower-third lines with narrative.md lines.
+
+  It wires every reusable component end to end so nothing here is aspirational:
+    components/color-grade.css     Stage B — the one global grade (on #root)
+    components/cinematic-frame.css Stage A — per-shot correction + full-bleed frame
+    components/brand-frame.css     logo slot, bottom line, lower third, title,
+                                   source credit, handle
+    components/ken-burns.js        CinKB — push-in / pull-out / lateral / parallax
+    components/transitions.js      CinTransitions — hard cut / short dissolve / sound-led
+    lib/motion.js, lib/type.css    shared with templates/tech-news-ar (byte-identical)
+
+  No paid media, no audio, no narration. The three stills are self-authored
+  placeholder SVGs, not production assets.
+-->
+<html lang="ar" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Cinematic Saudi Documentary — starter</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="lib/motion.js"></script>
+    <link rel="stylesheet" href="lib/type.css" />
+    <link rel="stylesheet" href="components/color-grade.css" />
+    <link rel="stylesheet" href="components/cinematic-frame.css" />
+    <link rel="stylesheet" href="components/brand-frame.css" />
+    <script src="components/ken-burns.js"></script>
+    <script src="components/transitions.js"></script>
+    <style>
+      @font-face {
+        font-family: "IBM Plex Sans Arabic";
+        src: url("assets/fonts/IBMPlexSansArabic-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "IBM Plex Sans Arabic";
+        src: url("assets/fonts/IBMPlexSansArabic-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "IBM Plex Sans Arabic";
+        src: url("assets/fonts/IBMPlexSansArabic-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-display: block;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0f0c;
+      }
+      #root {
+        overflow: hidden;
+        font-family: var(--ms-font);
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      class="grade-cinematic-sd"
+      data-composition-id="main"
+      data-format="landscape"
+      data-start="0"
+      data-duration="14.4"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- brand frame: always present, entrance tween only (no data-start) -->
+      <div class="logo-slot" id="logoSlot"><span class="mark"></span></div>
+      <div class="bottom-line" id="bottomLine"></div>
+      <div class="handle" id="handle">@your_handle</div>
+
+      <!-- Scene 1 — 0.0-3.6s — push-in 4% (Stage A: contrast lift; image visible at frame 0) -->
+      <section id="scene1" class="clip" data-start="0" data-duration="3.6" data-track-index="1">
+        <figure
+          class="cine-frame"
+          id="s1frame"
+          data-kb="push-in"
+          data-kb-amount="1.04"
+          style="--corr-contrast: 1.04;"
+        >
+          <img src="assets/media/placeholder-a.svg" alt="" data-layout-allow-overflow />
+        </figure>
+        <div class="lower-third" id="lt1"><p class="lt-line">سطر المشهد الأول.</p></div>
+      </section>
+
+      <!-- Scene 2 — 3.6-7.2s — pull-out 4% (Stage A: warm shot pulled back) -->
+      <section id="scene2" class="clip" data-start="3.6" data-duration="3.6" data-track-index="2">
+        <figure
+          class="cine-frame"
+          id="s2frame"
+          data-kb="pull-out"
+          data-kb-amount="1.04"
+          style="--corr-exposure: 0.95; --corr-saturation: 0.97; --corr-white-balance: hue-rotate(3deg);"
+        >
+          <img src="assets/media/placeholder-b.svg" alt="" data-layout-allow-overflow />
+        </figure>
+        <div class="lower-third" id="lt2"><p class="lt-line">سطر المشهد الثاني.</p></div>
+      </section>
+
+      <!-- Scene 3 — 7.2-10.8s — lateral drift 3% (Stage A: dark shot lifted).
+           This scene carries the section title instead of a lower third — one
+           chrome element at a time (../VISUAL_SYSTEM.md). It is entered by the
+           one short dissolve in the piece. -->
+      <section id="scene3" class="clip" data-start="7.2" data-duration="3.6" data-track-index="3">
+        <figure
+          class="cine-frame"
+          id="s3frame"
+          data-kb="lateral"
+          data-kb-amount="1.5"
+          data-kb-direction="rtl"
+          style="--corr-exposure: 1.1; --corr-contrast: 0.97; --corr-white-balance: sepia(0.02);"
+        >
+          <img src="assets/media/placeholder-c.svg" alt="" data-layout-allow-overflow />
+        </figure>
+        <div class="section-title" id="title1"><h2 class="title-line">التحول</h2></div>
+      </section>
+
+      <!-- Scene 4 — 10.8-14.4s — push-in 3% (Stage A: none — leaving a shot
+           uncorrected is a valid choice). Entered by the sound-led transition;
+           carries the lower third, source credit and handle. -->
+      <section id="scene4" class="clip" data-start="10.8" data-duration="3.6" data-track-index="4">
+        <figure class="cine-frame" id="s4frame" data-kb="push-in" data-kb-amount="1.03">
+          <img src="assets/media/placeholder-d.svg" alt="" data-layout-allow-overflow />
+        </figure>
+        <div class="lower-third" id="lt4"><p class="lt-line">سطر المشهد الأخير.</p></div>
+        <p class="credit" id="credit4">المصدر: أصول توضيحية داخلية</p>
+      </section>
+
+      <!--
+        Sound-led transition at 10.8s: the cue belongs here as a separate element.
+        Silent in this starter, so nothing is wired. In a real project a licensed
+        cue sits at the same time as the visual cut, e.g.
+          an audio element with id="sfx-whoosh", src="assets/audio/sfx/whoosh.wav",
+          data-start="10.8", data-duration="0.6", data-volume="0.5"
+        (../../AUDIO_DESIGN.md §7 — a <video> stays muted; sound lives on <audio>.)
+      -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // brand frame — draw the hairline once; fade the logo and handle in
+      CinTransitions.frameFadeIn(tl, "#logoSlot", 0.2, { duration: 0.6 });
+      tl.fromTo("#bottomLine", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 0.1);
+      tl.fromTo("#handle", { opacity: 0 }, { opacity: 0.85, duration: 0.5 }, 0.3);
+
+      // Ken Burns — one attribute pass over every [data-kb] frame
+      CinKB.apply(tl);
+
+      // transitions — exactly the three documented families
+      CinTransitions.hardCut(tl, "#s2frame", 3.6); // hard cut
+      CinTransitions.shortDissolve(tl, "#s2frame", "#s3frame", 7.2, { duration: 0.5 }); // short dissolve (the one pivot)
+      CinTransitions.soundLed(tl, "#s4frame", 10.8, { audioId: null }); // sound-led (silent here)
+
+      // chrome — lower thirds on scenes 1, 2 and 4; the section title owns scene 3
+      const beats = [
+        { id: "#lt1", at: 0, dur: 3.6 },
+        { id: "#lt2", at: 3.6, dur: 3.6 },
+        { id: "#lt4", at: 10.8, dur: 3.6 },
+      ];
+      beats.forEach((b) => {
+        tl.fromTo(b.id, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, b.at + 0.15);
+        tl.to(b.id, { opacity: 0, duration: 0.3, ease: "power2.in" }, b.at + b.dur - 0.3);
+      });
+      tl.fromTo("#title1", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 7.35);
+      tl.to("#title1", { opacity: 0, duration: 0.4, ease: "power2.in" }, 9.4);
+
+      // closing scene credit
+      tl.fromTo("#credit4", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 11.1);
+
+      // closing fade to black
+      CinTransitions.closingFade(tl, "#root", 13.8, { duration: 0.6 });
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

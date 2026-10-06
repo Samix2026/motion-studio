@@ -1,0 +1,49 @@
+{
+  "id": "anthropic",
+  "company": "Anthropic",
+  "aliases": ["anthropic", "claude", "claude code", "cowork"],
+  "colorConfidence": "verified",
+  "colorSources": ["https://www.anthropic.com/press-kit", "https://www.anthropic.com/"],
+  "officialColors": {
+    "primary": "#d97757",
+    "secondary": "#141413",
+    "ivory": "#faf9f5",
+    "sparkGradient": ["#d97757", "#dc6038"]
+  },
+  "tokens": {
+    "primary": "#d97757",
+    "secondary": "#141413",
+    "background": "#141413",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #201f1d 0%, #141413 55%, #0e0e0d 100%)",
+    "surface": "#262625",
+    "text": "#faf9f5",
+    "muted": "#9a9a94",
+    "accentGradient": "linear-gradient(135deg, #d97757 0%, #dc6038 100%)",
+    "borderColor": "#33322f",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "24px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#d97757",
+    "creditColor": "#9a9a94",
+    "progressFill": "#d97757"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Anthropic/Claude logo (Ivory variant on dark) from the press kit. Never recreate it."
+  },
+  "notes": "Clay #d97757, Slate #141413 and Ivory #faf9f5 are published in the official press-kit SVGs. UI neutrals are derived. Inspired by Anthropic's public identity; not an Anthropic publication."
+}

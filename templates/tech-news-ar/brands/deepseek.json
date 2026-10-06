@@ -1,0 +1,47 @@
+{
+  "id": "deepseek",
+  "company": "DeepSeek",
+  "aliases": ["deepseek", "deep seek"],
+  "colorConfidence": "sampled-official",
+  "colorSources": ["https://www.deepseek.com/", "https://cdn.deepseek.com/images/deepseek-chat-open-graph-image.jpeg"],
+  "officialColors": {
+    "primary": "#4d6bff",
+    "secondary": "#f2f6ff"
+  },
+  "tokens": {
+    "primary": "#4d6bff",
+    "secondary": "#f2f6ff",
+    "background": "#0f0f12",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #141b3a 0%, #0b0e1a 55%, #08090f 100%)",
+    "surface": "#171a26",
+    "text": "#f5f7ff",
+    "muted": "#9ca3af",
+    "accentGradient": "linear-gradient(135deg, #4d6bff 0%, #2f45c9 100%)",
+    "borderColor": "#232842",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "20px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#6d86ff",
+    "creditColor": "#8d94a8",
+    "progressFill": "#4d6bff"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official DeepSeek mark only. DeepSeek publishes no color spec; keep the blue accent restrained."
+  },
+  "notes": "DeepSeek publishes no brand color spec. Primary blue sampled from its official Open Graph image; exact official hex unavailable. UI neutrals are derived. Inspired by DeepSeek's public identity; not a DeepSeek publication."
+}

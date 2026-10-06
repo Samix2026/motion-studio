@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="945" viewBox="0 0 1680 945" role="img" aria-label="Placeholder chart">
+  <rect width="1680" height="945" fill="#10151c"/>
+  <g stroke="#27313e" stroke-width="2">
+    <path d="M200 180 H1520 M200 330 H1520 M200 480 H1520 M200 630 H1520"/>
+  </g>
+  <path d="M200 120 V780 H1520" stroke="#56657a" stroke-width="4" fill="none"/>
+  <g fill="#3d4b5d">
+    <rect x="290" y="620" width="150" height="160"/>
+    <rect x="540" y="520" width="150" height="260"/>
+    <rect x="790" y="410" width="150" height="370"/>
+    <rect x="1040" y="290" width="150" height="490"/>
+  </g>
+  <rect x="1290" y="170" width="150" height="610" fill="#8fa3bd"/>
+  <path d="M365 590 L615 490 L865 380 L1115 260 L1365 140" stroke="#c9d4e2" stroke-width="5" fill="none"/>
+  <text x="840" y="880" text-anchor="middle" font-family="monospace" font-size="30" letter-spacing="7" fill="#8fa3bd">PLACEHOLDER CHART · ILLUSTRATIVE SHAPES, NO DATA</text>
+</svg>

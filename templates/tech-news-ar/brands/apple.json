@@ -1,0 +1,49 @@
+{
+  "id": "apple",
+  "company": "Apple",
+  "aliases": ["apple", "iphone", "ipad", "mac", "macos", "ios", "siri", "vision pro"],
+  "colorConfidence": "sampled-official",
+  "colorSources": ["https://www.apple.com/", "https://developer.apple.com/design/human-interface-guidelines/"],
+  "officialColors": {
+    "primary": "#0071e3",
+    "secondary": "#1d1d1f",
+    "text": "#f5f5f7",
+    "muted": "#86868b"
+  },
+  "tokens": {
+    "primary": "#0071e3",
+    "secondary": "#1d1d1f",
+    "background": "#000000",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #1d1d1f 0%, #0a0a0a 55%, #000000 100%)",
+    "surface": "#1d1d1f",
+    "text": "#f5f5f7",
+    "muted": "#86868b",
+    "accentGradient": "linear-gradient(135deg, #0071e3 0%, #0a84ff 100%)",
+    "borderColor": "#2d2d2f",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "18px",
+    "gap": "48px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "600",
+    "headlineTracking": "-0.02em",
+    "highlightColor": "#2997ff",
+    "creditColor": "#86868b",
+    "progressFill": "#0071e3"
+  },
+  "traits": {
+    "density": "airy",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "semibold-tight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Apple logo only, monochrome. Apple brand use is restricted; when in doubt, omit the logo and rely on typography."
+  },
+  "notes": "Values sampled from Apple's own site CSS; Apple publishes no color spec. Identity is monochrome with a restrained blue link accent. Inspired by Apple's public identity; not an Apple publication."
+}

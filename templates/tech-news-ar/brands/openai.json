@@ -1,0 +1,47 @@
+{
+  "id": "openai",
+  "company": "OpenAI",
+  "aliases": ["openai", "chatgpt", "gpt", "sora"],
+  "colorConfidence": "approximate",
+  "colorSources": ["https://openai.com/brand/", "https://openai.com/"],
+  "officialColors": {
+    "primary": "#000000",
+    "secondary": "#ffffff"
+  },
+  "tokens": {
+    "primary": "#ffffff",
+    "secondary": "#8e8ea0",
+    "background": "#000000",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #0d0d0d 0%, #040404 55%, #000000 100%)",
+    "surface": "#1a1a1a",
+    "text": "#ffffff",
+    "muted": "#8e8ea0",
+    "accentGradient": "linear-gradient(135deg, #ffffff 0%, #8e8ea0 100%)",
+    "borderColor": "#2f2f2f",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "14px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "-0.01em",
+    "highlightColor": "#ffffff",
+    "creditColor": "#8e8ea0",
+    "progressFill": "#ffffff"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "solid"
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official OpenAI mark only. The identity is monochrome; do not add color."
+  },
+  "notes": "OpenAI publishes a monochrome identity; no official accent hex is published. primary is set to white for use on a dark canvas (official brand primary is black). UI neutrals are approximate. Inspired by OpenAI's public identity; not an OpenAI publication."
+}

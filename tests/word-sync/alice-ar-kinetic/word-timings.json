@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "provider": "elevenlabs",
+  "audio_duration_ms": 10913,
+  "words": [
+    {
+      "word": "نستخدم",
+      "start_ms": 0,
+      "end_ms": 685,
+      "confidence": null
+    },
+    {
+      "word": "OpenAI",
+      "start_ms": 801,
+      "end_ms": 1730,
+      "confidence": null
+    },
+    {
+      "word": "وClaude",
+      "start_ms": 1846,
+      "end_ms": 2415,
+      "confidence": null
+    },
+    {
+      "word": "Code",
+      "start_ms": 2473,
+      "end_ms": 2821,
+      "confidence": null
+    },
+    {
+      "word": "لبناء",
+      "start_ms": 2937,
+      "end_ms": 3413,
+      "confidence": null
+    },
+    {
+      "word": "سير",
+      "start_ms": 3529,
+      "end_ms": 3738,
+      "confidence": null
+    },
+    {
+      "word": "عمل",
+      "start_ms": 3855,
+      "end_ms": 4180,
+      "confidence": null
+    },
+    {
+      "word": "ذكي،",
+      "start_ms": 4296,
+      "end_ms": 4899,
+      "confidence": null
+    },
+    {
+      "word": "ونقارن",
+      "start_ms": 5108,
+      "end_ms": 5724,
+      "confidence": null
+    },
+    {
+      "word": "مخرجات",
+      "start_ms": 5770,
+      "end_ms": 6420,
+      "confidence": null
+    },
+    {
+      "word": "Gemini",
+      "start_ms": 6571,
+      "end_ms": 7129,
+      "confidence": null
+    },
+    {
+      "word": "وHUMAIN",
+      "start_ms": 7279,
+      "end_ms": 7918,
+      "confidence": null
+    },
+    {
+      "word": "Cloud",
+      "start_ms": 7999,
+      "end_ms": 8429,
+      "confidence": null
+    },
+    {
+      "word": "قبل",
+      "start_ms": 8754,
+      "end_ms": 9079,
+      "confidence": null
+    },
+    {
+      "word": "اعتمادها",
+      "start_ms": 9102,
+      "end_ms": 9706,
+      "confidence": null
+    },
+    {
+      "word": "في",
+      "start_ms": 9776,
+      "end_ms": 9845,
+      "confidence": null
+    },
+    {
+      "word": "الإنتاج.",
+      "start_ms": 9880,
+      "end_ms": 10913,
+      "confidence": null
+    }
+  ]
+}

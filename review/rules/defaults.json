@@ -1,0 +1,41 @@
+{
+  "timing": {
+    "max_static_hold_seconds": 1.0,
+    "target_static_hold_seconds": 0.4,
+    "narration_tail_padding_seconds": 0.3,
+    "narration_visual_min_seconds": 1.0,
+    "scene_outlier_ratio_high": 1.8,
+    "scene_outlier_ratio_low": 0.5,
+    "scene_outlier_min_delta_seconds": 2.0,
+    "sfx_offset_tolerance_seconds": 0.15,
+    "caption_sync_tolerance_ms": 150,
+    "music_gap_tolerance_seconds": 0.5,
+    "silence_min_seconds": 1.5
+  },
+  "pixels": {
+    "freeze_min_seconds": 2.5,
+    "freeze_high_seconds": 4.0,
+    "freeze_noise_db": -60,
+    "freeze_content_crop": [0.10, 0.14],
+    "duplicate_max_bits": 28,
+    "max_words_per_second": 4.0,
+    "high_words_per_second": 5.0,
+    "max_words_per_scene": 26,
+    "frame_zero": {},
+    "diagnostics": {
+      "fps": 10,
+      "near_still_threshold": 0.05,
+      "hold_report_seconds": 0.6,
+      "long_hold_seconds": 2.0,
+      "empty_frame_coverage": 0.01,
+      "boundary_window_seconds": 0.6,
+      "boundary_dip_ratio": 0.35
+    }
+  },
+  "readability": {
+    "min_secondary_font_px": 26.0,
+    "min_contrast_ratio": 4.5,
+    "secondary_classes": ["sub", "note", "shotcap", "wcap", "src"],
+    "background_hint": "#131416"
+  }
+}

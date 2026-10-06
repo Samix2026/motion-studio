@@ -1,0 +1,33 @@
+{
+  "project": "example-project",
+  "approved_cost_limit_usd": null,
+  "items": [
+    {
+      "scene": 1,
+      "asset_type": "video",
+      "provider": "MiniMax",
+      "model": "video-01",
+      "requests": 1,
+      "unit_basis": "request",
+      "pricing_ref": "MiniMax.video-01.request"
+    },
+    {
+      "scene": 3,
+      "asset_type": "tts",
+      "provider": "ElevenLabs",
+      "model": "eleven_multilingual_v2",
+      "quantity": 420,
+      "unit_basis": "character",
+      "pricing_ref": "ElevenLabs.eleven_multilingual_v2.character"
+    },
+    {
+      "scene": 5,
+      "asset_type": "sfx",
+      "provider": "ElevenLabs",
+      "model": "sound-effects",
+      "requests": 1,
+      "unit_basis": "request",
+      "pricing_ref": "ElevenLabs.sound-effects.request"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "google",
+  "company": "Google",
+  "aliases": ["google", "alphabet", "gemini", "deepmind", "android", "youtube"],
+  "colorConfidence": "verified",
+  "colorSources": ["https://about.google/brand-resource-center/", "https://www.google.com/"],
+  "officialColors": {
+    "primary": "#4285f4",
+    "secondary": "#ea4335",
+    "palette": ["#4285f4", "#ea4335", "#fbbc05", "#34a853"]
+  },
+  "tokens": {
+    "primary": "#4285f4",
+    "secondary": "#ea4335",
+    "background": "#202124",
+    "backgroundGradient": "radial-gradient(120% 90% at 50% 28%, #2a2b2e 0%, #202124 55%, #17181a 100%)",
+    "surface": "#303134",
+    "text": "#e8eaed",
+    "muted": "#9aa0a6",
+    "accentGradient": "linear-gradient(135deg, #4285f4 0%, #34a853 100%)",
+    "borderColor": "#3c4043",
+    "borderWidth": "2px",
+    "borderStyle": "solid",
+    "radius": "16px",
+    "gap": "40px",
+    "imageFit": "cover",
+    "imagePosition": "center",
+    "imageScale": "1",
+    "headlineWeight": "700",
+    "headlineTracking": "0",
+    "highlightColor": "#4285f4",
+    "creditColor": "#9aa0a6",
+    "progressFill": "linear-gradient(90deg, #4285f4 0%, #ea4335 33%, #fbbc05 66%, #34a853 100%)"
+  },
+  "traits": {
+    "density": "medium",
+    "imageTreatment": "cover-center",
+    "headlineTreatment": "bold-highlight",
+    "creditTreatment": "muted",
+    "progressTreatment": "multi-color"
+  },
+  "identity": {
+    "palette": ["#4285f4", "#ea4335", "#fbbc05", "#34a853"],
+    "paletteUse": "The four colours work as a set. Use them together inside the scenes (segments, ordered steps, data series, object fills), not one blue accent on gray.",
+    "gradients": ["four-colour sequence blue → red → yellow → green for progress, tracks and data", "Gemini products: a blue-to-violet gradient and the four-point spark; verify the current official asset before using either"],
+    "shapes": "Simple rounded geometry: circles, pills, rounded rectangles, generous corner radius.",
+    "motifs": ["four-colour dots or segments", "rounded search/prompt bar", "clean product UI surfaces on white or near-black", "the Gemini spark for Gemini subjects (official asset only)"],
+    "surface": "Flat, bright and clean. Light surfaces are as on-brand as dark ones; avoid heavy glass or neon.",
+    "motion": "Friendly and precise: quick ease-out moves, small overshoot on dots and pills, no aggressive shake.",
+    "confidence": "descriptive — palette verified from the official logo; the rest describes Google's public identity and is not an official specification."
+  },
+  "logoRules": {
+    "allowed": true,
+    "placements": ["topbar-brand", "intro-hero"],
+    "note": "Official Google logo/mark only. The four-color palette is the brand signal; do not use one color as if it were the whole identity."
+  },
+  "notes": "Four-color Google palette verified from the official logo. UI neutrals follow Google's dark-theme grays (approximate). Inspired by Google's public identity; not a Google publication."
+}

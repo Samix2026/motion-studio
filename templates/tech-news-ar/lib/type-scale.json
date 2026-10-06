@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "font": {
+    "family": "Alexandria",
+    "license": "SIL Open Font License 1.1",
+    "license_file": "assets/fonts/OFL-Alexandria.txt",
+    "source": "https://github.com/google/fonts/tree/main/ofl/alexandria",
+    "checked_at": "2026-10-04",
+    "weights": "100 900",
+    "files": {
+      "arabic": "assets/fonts/Alexandria-arabic.woff2",
+      "latin": "assets/fonts/Alexandria-latin.woff2"
+    },
+    "notes": "Required Arabic family for the standard template. One variable family in two unicode-range subsets (Arabic, Latin), so mixed Arabic/Latin lines share one design. Never reference system-only faces (SF Arabic, Geeza Pro): headless Chrome cannot load them."
+  },
+  "phone_viewport_css_px": 390,
+  "readability_policy": {
+    "subtitle": "Intentional caption-specific exception: timed subtitles/captions may use a lower phone-scale floor (landscape 8px, portrait 12px) than general secondary UI text (10px / 14px). This applies ONLY to the `subtitle` role (class `subtitle`) on timed subtitle elements. It is NOT a global readability relaxation: headline, labels, statistics, cards, and all other secondary UI text keep the existing secondary floor. Rationale: subtitles are read in sync with narration and are transcribed speech, not standalone UI copy, so their legibility requirement differs from body/UI text.",
+    "checked_at": "2026-09-16"
+  },
+  "formats": {
+    "portrait": {
+      "width": 1080,
+      "height": 1920,
+      "scale": {
+        "display": 120,
+        "headline": 92,
+        "secondary": 50,
+        "caption": 40,
+        "subtitle": 40,
+        "credit": 30,
+        "handle": 32,
+        "stat": 260,
+        "stat_label": 46
+      },
+      "min_phone_px": { "secondary": 14, "caption": 12, "subtitle": 12, "credit": 9 },
+      "zones": {
+        "chrome_inset": 64,
+        "text_safe": { "top": 200, "side": 72, "bottom": 320 },
+        "full_bleed_media": { "inset": 0, "text_band_bottom": 360 },
+        "split": { "media_height_ratio": 0.52, "gutter": 48 },
+        "large_headline": { "max_width": 936 },
+        "card": { "max_width": 936, "max_height": 760 }
+      }
+    },
+    "landscape": {
+      "width": 1920,
+      "height": 1080,
+      "scale": {
+        "display": 132,
+        "headline": 96,
+        "secondary": 54,
+        "caption": 42,
+        "subtitle": 40,
+        "credit": 32,
+        "handle": 30,
+        "stat": 240,
+        "stat_label": 48
+      },
+      "min_phone_px": { "secondary": 10, "caption": 8, "subtitle": 8, "credit": 6 },
+      "zones": {
+        "chrome_inset": 56,
+        "text_safe": { "top": 150, "side": 120, "bottom": 130 },
+        "full_bleed_media": { "inset": 0, "text_band_bottom": 110 },
+        "split": { "media_width_ratio": 0.55, "gutter": 80 },
+        "large_headline": { "max_width": 1600 },
+        "card": { "max_width": 1480, "max_height": 760 }
+      }
+    }
+  },
+  "frame_zero": {
+    "check_at_seconds": [0.0, 0.5],
+    "deadline_seconds": 0.5,
+    "min_content_coverage": 0.01,
+    "near_black_mean_luma": 24,
+    "notes": "Content coverage = share of pixels that differ from the dominant background luma by more than 32/255. Calibrated on existing renders: legacy hooks measure 0.0 at frame 0 and about 0.005 at 0.5s; a readable hook headline measures about 0.027."
+  }
+}

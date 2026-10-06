@@ -1,0 +1,65 @@
+{
+  "id": "business-learning-starter",
+  "name": "business-learning-starter",
+  "brand": "generic",
+  "brandCompany": "",
+  "demo": true,
+  "format": "portrait",
+  "content_type": "business_learning",
+  "narration": "off",
+  "outputs": {
+    "master": {
+      "aspect_ratio": "9:16",
+      "resolution": "1080x1920",
+      "file": "renders/video.mp4"
+    },
+    "cover": {
+      "time_s": 1.0,
+      "file": null,
+      "text": null
+    },
+    "caption": {
+      "text": null,
+      "hashtags": []
+    },
+    "cta": {
+      "text": null,
+      "url": null
+    },
+    "platforms": {
+      "tiktok": {
+        "enabled": true
+      },
+      "instagram_reels": {
+        "enabled": true
+      },
+      "youtube_shorts": {
+        "enabled": true
+      },
+      "x": {
+        "enabled": true
+      }
+    }
+  },
+  "design_manifest": {
+    "brand": {
+      "subject": "Business Learning starter: process_flow grammar demo with generic operational labels",
+      "product": "none",
+      "source": "template demo; neutral series palette; Alexandria (SIL OFL 1.1)",
+      "identity_mode": "neutral",
+      "reference_scope": "project-only",
+      "composition_language": "fresh",
+      "inherited_from": null,
+      "inheritance_authorized": false
+    },
+    "user_identity": {
+      "x_handle": "@your_handle",
+      "show_handle": true
+    },
+    "visual_reference": {
+      "supplied": false,
+      "scope": "project-only",
+      "promoted_to_template": false
+    }
+  }
+}

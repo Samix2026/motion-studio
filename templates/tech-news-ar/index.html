@@ -1,0 +1,444 @@
+<!doctype html>
+<!--
+  tech-news-ar — Arabic technology-news starter (HyperFrames + GSAP)
+  ------------------------------------------------------------------
+  Replace every [[...]] marker and each "REPLACE" comment. Keep the structure,
+  safe zones, one paused timeline, and the @your_handle footer.
+  See VIDEO_WORKFLOW.md, CONTENT_RULES.md, ASSET_POLICY.md.
+  Arabic text must contain NO tashkeel (CONTENT_RULES.md).
+
+  Typography: lib/type.css + assets/fonts/ (bundled Alexandria, OFL).
+  Copy both into the project. Never use system-only faces (SF Arabic, Geeza Pro).
+  Frame-0 rule: the hook is already visible at frame 0 (no fade from black).
+  Prefer the scene-grammar starters in examples/ for new projects.
+-->
+<html lang="ar" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>[[عنوان المشروع]]</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="lib/type.css" />
+    <style>
+      /* Bundled Arabic font (Alexandria, OFL — assets/fonts/OFL-Alexandria.txt). Keep inline. */
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-arabic.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+      }
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-latin.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      :root {
+        /* brand:start — tokens from brands/<id>.json (default: generic) */
+        --brand-primary: #ffffff;
+        --brand-secondary: #9c9c9c;
+        --brand-background: #0a0a0a;
+        --brand-background-gradient: radial-gradient(120% 90% at 50% 28%, #181818 0%, #0d0d0d 55%, #0a0a0a 100%);
+        --brand-surface: #121212;
+        --brand-text: #dcdcdc;
+        --brand-muted: #9c9c9c;
+        --brand-accent-gradient: linear-gradient(135deg, #ffffff 0%, #a6a6a6 100%);
+        --brand-border-color: #2a2a2a;
+        --brand-border-width: 2px;
+        --brand-border-style: solid;
+        --brand-radius: 26px;
+        --brand-gap: 40px;
+        --brand-image-fit: cover;
+        --brand-image-position: center;
+        --brand-image-scale: 1;
+        --brand-headline-weight: 700;
+        --brand-headline-tracking: -0.01em;
+        --brand-highlight-color: #ffffff;
+        --brand-credit-color: #8c8c8c;
+        --brand-progress-fill: #ffffff;
+        /* brand:end */
+
+        --bg: var(--brand-background);
+        --text: var(--brand-text);
+        --muted: var(--brand-muted);
+        --accent: var(--brand-primary);
+        --line: var(--brand-border-color);
+        --font-ar: var(--ms-font);
+        --font-ui: var(--ms-font);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      body {
+        font-family: var(--font-ar);
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--brand-background-gradient, var(--brand-background));
+      }
+
+      .glow {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        width: 1400px;
+        height: 1400px;
+        margin-left: -700px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          color-mix(in srgb, var(--brand-primary) 13%, transparent) 0%,
+          color-mix(in srgb, var(--brand-primary) 4%, transparent) 40%,
+          transparent 68%
+        );
+        filter: blur(20px);
+        will-change: transform, opacity;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Safe zone: var(--zone-top) / var(--zone-side) / var(--zone-bottom) */
+      .scene {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--brand-gap);
+        width: 100%;
+        height: 100%;
+        padding: var(--zone-top) var(--zone-side) var(--zone-bottom);
+        direction: rtl;
+        text-align: center;
+      }
+
+      .headline {
+        max-width: 936px;
+        font-family: var(--font-ar);
+        font-size: var(--ts-headline);
+        font-weight: var(--brand-headline-weight);
+        line-height: 1.35;
+        letter-spacing: var(--brand-headline-tracking);
+        color: var(--text);
+      }
+      .headline.small {
+        font-size: calc(var(--ts-headline) * 0.88);
+      }
+      .sub {
+        max-width: 900px;
+        font-family: var(--font-ar);
+        font-size: calc(var(--ts-secondary) * var(--secondary-scale, 1));
+        font-weight: 500;
+        line-height: 1.55;
+        color: var(--ms-secondary);
+      }
+      .hl {
+        display: inline-block;
+        color: var(--brand-highlight-color);
+      }
+
+      .hero-logo {
+        width: 470px;
+        height: auto;
+      }
+      .spark {
+        width: 132px;
+        height: auto;
+      }
+
+      /* Media card — replace .media-slot with:
+         <figure class="card"><img src="assets/<file>" alt="" /></figure> */
+      .card {
+        position: relative;
+        width: 936px;
+        height: 560px;
+        border-radius: var(--brand-radius);
+        overflow: hidden;
+        border: var(--brand-border-width) var(--brand-border-style) var(--brand-border-color);
+        background: var(--brand-surface);
+      }
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: var(--brand-image-fit);
+        object-position: var(--brand-image-position);
+        transform: scale(var(--brand-image-scale));
+      }
+      .card.left img {
+        object-position: left center;
+        transform-origin: left center;
+      }
+      .media-slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 936px;
+        height: 560px;
+        border: var(--brand-border-width) dashed var(--brand-border-color);
+        border-radius: var(--brand-radius);
+        color: var(--brand-muted);
+        font-family: var(--font-ar);
+        font-size: var(--ts-caption);
+      }
+      .credit {
+        direction: rtl;
+        font-family: var(--font-ar);
+        font-size: var(--ts-credit);
+        color: var(--brand-credit-color);
+        letter-spacing: 0.01em;
+      }
+
+      .lockup {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 22px;
+        direction: ltr;
+      }
+      .chip {
+        font-family: var(--font-ui);
+        font-size: var(--ts-caption);
+        font-weight: 500;
+        color: var(--text);
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        padding: 14px 34px;
+        white-space: nowrap;
+      }
+      .chip-link {
+        width: 2px;
+        height: 44px;
+        background: var(--brand-primary);
+        transform-origin: top center;
+      }
+
+      .topbar {
+        position: absolute;
+        top: var(--zone-chrome);
+        left: var(--zone-chrome);
+        right: var(--zone-chrome);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 50;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .brand-dot {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        background: var(--brand-primary);
+        transform: rotate(45deg);
+      }
+      .brand-word {
+        direction: rtl;
+        font-family: var(--font-ar);
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .tag {
+        direction: rtl;
+        font-family: var(--font-ar);
+        font-size: var(--ts-credit);
+        font-weight: 500;
+        color: var(--brand-primary);
+        border: var(--brand-border-width) solid color-mix(in srgb, var(--brand-primary) 45%, transparent);
+        border-radius: 999px;
+        padding: 8px 26px 10px;
+      }
+
+      .footer {
+        position: absolute;
+        left: var(--zone-chrome);
+        right: var(--zone-chrome);
+        bottom: 76px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        z-index: 50;
+      }
+      .progress {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 10px;
+      }
+      .seg {
+        display: block;
+        width: 64px;
+        height: 5px;
+        border-radius: 3px;
+        background: var(--brand-progress-fill);
+        transform-origin: right center;
+      }
+      .handle {
+        direction: ltr;
+        font-family: var(--font-ui);
+        font-size: var(--ts-handle);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: #d6d4cf;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-format="portrait"
+      data-start="0"
+      data-duration="32"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="glow" id="glow"></div>
+
+      <div class="topbar" id="topbar">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <!-- REPLACE publisher name -->
+          <span class="brand-word">[[اسم القناة]]</span>
+        </div>
+        <!-- REPLACE category label -->
+        <div class="tag">تقنية</div>
+      </div>
+
+      <!-- BEAT 1 — HOOK (visible at frame 0) -->
+      <section id="scene1" class="clip" data-start="0" data-duration="6.5" data-track-index="1">
+        <div class="scene">
+          <!-- REPLACE logo (optional): <img id="s1logo" class="hero-logo" src="assets/<file>.svg" alt="" /> -->
+          <!-- REPLACE headline -->
+          <h1 id="s1h" class="headline">[[عنوان الخطاف]]</h1>
+          <!-- REPLACE subcaption -->
+          <p id="s1s" class="sub">[[سطر توضيحي للخطاف]]</p>
+        </div>
+      </section>
+
+      <!-- BEAT 2 — WHAT HAPPENED -->
+      <section id="scene2" class="clip" data-start="6.5" data-duration="7.5" data-track-index="2">
+        <div class="scene">
+          <h1 id="s2h" class="headline small">[[ماذا حدث]]</h1>
+          <p id="s2s" class="sub">[[وصف مختصر للخبر]]</p>
+          <!-- REPLACE with: <figure id="s2media" class="card"><img src="assets/<file>" alt="" /></figure> -->
+          <div id="s2media" class="media-slot">ضع هنا وسائط رسمية</div>
+          <p class="credit">المصدر: [[الناشر]]</p>
+        </div>
+      </section>
+
+      <!-- BEAT 3 — WHY IT MATTERS -->
+      <section id="scene3" class="clip" data-start="14" data-duration="7" data-track-index="3">
+        <div class="scene">
+          <h1 id="s3h" class="headline">[[لماذا يهم هذا]]</h1>
+          <p id="s3s" class="sub">[[الأثر أو السياق]]</p>
+          <div id="s3lockup" class="lockup">
+            <span class="chip">[[اسم المنتج 1]]</span>
+            <span class="chip-link"></span>
+            <span class="chip">[[اسم المنتج 2]]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEAT 4 — ONE KEY DETAIL -->
+      <section id="scene4" class="clip" data-start="21" data-duration="6.5" data-track-index="4">
+        <div class="scene">
+          <h1 id="s4h" class="headline small">[[تفصيل مهم]] <span class="hl">[[كلمة التوكيد]]</span></h1>
+          <p id="s4s" class="sub">[[التفصيل الموثق]]</p>
+          <!-- REPLACE with: <figure id="s4media" class="card"><img src="assets/<file>" alt="" /></figure> -->
+          <div id="s4media" class="media-slot">ضع هنا وسائط رسمية</div>
+          <p class="credit">المصدر: [[الناشر]]</p>
+        </div>
+      </section>
+
+      <!-- BEAT 5 — TAKEAWAY -->
+      <section id="scene5" class="clip" data-start="27.5" data-duration="4.5" data-track-index="5">
+        <div class="scene">
+          <!-- REPLACE spark/logo (optional): <img id="s5spark" class="spark" src="assets/<file>.svg" alt="" /> -->
+          <h1 id="s5h" class="headline">[[الخلاصة]]</h1>
+          <p id="s5s" class="sub">[[جملة ختامية]]</p>
+        </div>
+      </section>
+
+      <div class="footer" id="footer">
+        <div class="progress">
+          <span class="seg" id="p1"></span>
+          <span class="seg" id="p2"></span>
+          <span class="seg" id="p3"></span>
+          <span class="seg" id="p4"></span>
+          <span class="seg" id="p5"></span>
+        </div>
+        <div class="handle">@your_handle</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "power3.out";
+
+      // Frame-0 rule: chrome and the hook are already on screen at t=0.
+      tl.fromTo("#glow", { opacity: 0.6 }, { opacity: 1, duration: 1.6, ease: "power2.out" }, 0);
+      tl.fromTo("#topbar", { opacity: 0.4 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo("#footer", { opacity: 0.4 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+
+      // Beat 1 — RTL mask reveal that starts 70% revealed (no fade from black)
+      tl.fromTo("#s1h", { clipPath: "inset(0% 0% 0% 30%)", y: 10 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, duration: 0.7, ease: EASE }, 0);
+      tl.fromTo("#s1s", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.3);
+
+      // Beat 2
+      tl.fromTo("#s2h", { opacity: 0, y: 46, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: EASE }, 6.75);
+      tl.fromTo("#s2s", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.75, ease: "power2.out" }, 7.2);
+      tl.fromTo("#s2media", { opacity: 0, y: 44, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: EASE }, 7.65);
+
+      // Beat 3
+      tl.fromTo("#s3h", { opacity: 0, y: 46, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: EASE }, 14.2);
+      tl.fromTo("#s3s", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.75, ease: "power2.out" }, 14.75);
+      tl.fromTo("#s3lockup", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.85, ease: EASE }, 15.25);
+      tl.fromTo(".chip-link", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, 15.7);
+
+      // Beat 4
+      tl.fromTo("#s4h", { opacity: 0, y: 46, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: EASE }, 21.2);
+      tl.fromTo("#s4s", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.75, ease: "power2.out" }, 21.75);
+      tl.fromTo("#s4media", { opacity: 0, y: 44, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: EASE }, 22.2);
+      tl.fromTo(".hl", { scale: 1 }, { scale: 1.06, duration: 0.28, yoyo: true, repeat: 1, ease: "sine.inOut" }, 22.1);
+
+      // Beat 5
+      tl.fromTo("#s5h", { opacity: 0, y: 46, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: EASE }, 27.95);
+      tl.fromTo("#s5s", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.75, ease: "power2.out" }, 28.55);
+
+      // Progress segments fill across their scene
+      tl.fromTo("#p1", { scaleX: 0 }, { scaleX: 1, duration: 6.5, ease: "none" }, 0);
+      tl.fromTo("#p2", { scaleX: 0 }, { scaleX: 1, duration: 7.5, ease: "none" }, 6.5);
+      tl.fromTo("#p3", { scaleX: 0 }, { scaleX: 1, duration: 7, ease: "none" }, 14);
+      tl.fromTo("#p4", { scaleX: 0 }, { scaleX: 1, duration: 6.5, ease: "none" }, 21);
+      tl.fromTo("#p5", { scaleX: 0 }, { scaleX: 1, duration: 4.5, ease: "none" }, 27.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

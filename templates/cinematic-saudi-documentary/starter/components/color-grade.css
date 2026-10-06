@@ -1,0 +1,51 @@
+/*
+  components/color-grade.css — Stage B: the one global cinematic grade.
+
+  Applied ONCE, on the composition root (#root), after every shot has already
+  been corrected per shot in Stage A (components/cinematic-frame.css).
+  Spec: ../COLOR_GRADE.md §Stage B. This file is the working port of the value
+  set validated by cinematic-saudi-documentary-pilot ("still-led documentary
+  validation: PASS").
+
+  Rules this file encodes:
+  - one wrapper, one grade — never a per-scene grade;
+  - restrained contrast; saturation never above 1;
+  - the warm bias stays small so corrected skin tones never tip orange/green;
+  - the dark-green shadow tint is a soft multiply overlay, not a hue shift.
+
+  Flag-forward projects: add .is-flag-safe to the root to lighten the shadow
+  overlay so a small bright green flag on a dark background is not dulled
+  (../COLOR_GRADE.md §Flag protection). Never hue-rotate a flag-forward shot.
+*/
+
+:root {
+  --grade-shadow-tint: #10241a; /* dark green shadow tint */
+  --grade-contrast: 1.04; /* restrained: keep near 1.0 */
+  --grade-saturation: 0.94; /* slightly desaturated, never > 1 */
+  --grade-brightness: 1;
+  --grade-warmth: 0.03; /* subtle warm bias, skin-safe */
+  --grade-shadow-opacity: 0.06; /* deliberately light — not a stylized LUT */
+}
+
+.grade-cinematic-sd {
+  position: relative;
+  filter: saturate(var(--grade-saturation)) contrast(var(--grade-contrast)) brightness(var(--grade-brightness))
+    sepia(var(--grade-warmth));
+}
+
+/* dark-green shadow tint via a soft multiply overlay, not a hue shift */
+.grade-cinematic-sd::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grade-shadow-tint);
+  mix-blend-mode: multiply;
+  opacity: var(--grade-shadow-opacity);
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Flag-forward pieces: lighter tint so the flag's green still reads green. */
+.grade-cinematic-sd.is-flag-safe {
+  --grade-shadow-opacity: 0.02;
+}

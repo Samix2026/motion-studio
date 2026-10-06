@@ -1,0 +1,246 @@
+<!doctype html>
+<!--
+  Business Learning starter (1080x1920, silent). Demonstrates the process_flow
+  grammar only; generic operational labels, no lesson content.
+    1  line  · neutral  — work enters and leaves at the same pace, no queue
+    2  line  · problem  — work enters faster than one step releases it; a queue forms
+    3  floor · problem → after — travel between two locations, then the SAME stage
+                                 improves: shorter path, shorter queue, new counters
+  lib/ is a byte-identical copy of templates/tech-news-ar/lib. Fonts: Alexandria
+  (assets/fonts, SIL OFL 1.1). Numbers are illustrative.
+-->
+<html lang="ar" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Business Learning starter - process_flow demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="lib/motion.js"></script>
+    <link rel="stylesheet" href="lib/type.css" />
+    <link rel="stylesheet" href="lib/grammar.css" />
+    <style>
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-arabic.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+      }
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/Alexandria-latin.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      :root {
+        --ms-font: "Alexandria", sans-serif;
+        --brand-primary: #7cc4ff;
+        --brand-background: #0d1015;
+        --brand-background-gradient: radial-gradient(120% 90% at 50% 20%, #161b24 0%, #0f131a 55%, #0b0d12 100%);
+        --brand-surface: #171c25;
+        --brand-text: #f3f5f7;
+        --brand-muted: #8d96a3;
+        --brand-border-color: #2c3440;
+        --brand-radius: 20px;
+        --brand-highlight-color: #7cc4ff;
+        --brand-credit-color: #a3abb6;
+        --pf-alert: #ff8a3d;
+        --pf-good: #3ddc97;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--brand-background);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: var(--ms-font);
+        background: var(--brand-background-gradient);
+      }
+      #s2hot {
+        --pf-hot-w: 230px;
+        --pf-hot-h: 340px;
+      }
+      #s3hot {
+        --pf-hot-w: 170px;
+        --pf-hot-h: 170px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-format="portrait"
+      data-start="0"
+      data-duration="26"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- 1 — process_flow · line · neutral -->
+      <section id="s1" class="clip g-scene" data-grammar="process_flow" data-variant="line" data-beat-kind="process" data-start="0" data-duration="5" data-track-index="1">
+        <div class="g">
+          <div class="pf-copy" id="s1copy">
+            <h2 class="t-headline">العمل يتدفق دون توقف</h2>
+            <p class="t-secondary">الطلبات تدخل وتخرج بالسرعة نفسها</p>
+          </div>
+          <div class="pf-stage" id="s1stage" data-state="neutral">
+            <div class="pf-nodes">
+              <div class="pf-node" data-node="in"><span class="t-caption">استلام</span></div>
+              <div class="pf-link"></div>
+              <div class="pf-node" data-node="work"><span class="t-caption">تجهيز</span></div>
+              <div class="pf-link"></div>
+              <div class="pf-node" data-node="out"><span class="t-caption">تسليم</span></div>
+            </div>
+            <div class="pf-queue" id="s1q" data-at="work">
+              <span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span>
+            </div>
+            <span class="pf-token s1t"></span><span class="pf-token s1t"></span><span class="pf-token s1t"></span><span class="pf-token s1t"></span><span class="pf-token s1t"></span>
+          </div>
+          <div class="pf-counters" id="s1counters">
+            <div class="pf-counter">
+              <span class="t-headline pf-counter-value" id="s1n">0</span>
+              <span class="t-caption">في الانتظار</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 — process_flow · line · problem (accumulation) -->
+      <section id="s2" class="clip g-scene" data-grammar="process_flow" data-variant="line" data-beat-kind="process" data-start="5" data-duration="7.5" data-track-index="2">
+        <div class="g">
+          <div class="pf-copy" id="s2copy">
+            <h2 class="t-headline">العمل يدخل أسرع مما يخرج</h2>
+            <p class="t-secondary">فيتكدس أمام الخطوة الأبطأ</p>
+          </div>
+          <div class="pf-stage" id="s2stage" data-state="problem">
+            <div class="pf-nodes">
+              <div class="pf-node" data-node="in"><span class="t-caption">استلام</span></div>
+              <div class="pf-link"></div>
+              <div class="pf-node" data-node="work"><span class="t-caption">تجهيز</span></div>
+              <div class="pf-link"></div>
+              <div class="pf-node" data-node="out"><span class="t-caption">تسليم</span></div>
+            </div>
+            <div class="pf-queue" id="s2q" data-at="work">
+              <span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span>
+            </div>
+            <div class="pf-hotspot" id="s2hot" data-at="#s2q"><span class="pf-tag">تكدس</span></div>
+            <span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span>
+            <span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span><span class="pf-token s2t"></span>
+          </div>
+          <div class="pf-counters" id="s2counters">
+            <div class="pf-counter">
+              <span class="t-headline pf-counter-value" id="s2n">0</span>
+              <span class="t-caption">في الانتظار</span>
+            </div>
+            <span class="pf-tag">أرقام افتراضية للتوضيح</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 — process_flow · floor · problem → after (same stage) -->
+      <section id="s3" class="clip g-scene" data-grammar="process_flow" data-variant="floor" data-beat-kind="comparison" data-start="12.5" data-duration="13.5" data-track-index="3">
+        <div class="g">
+          <div class="pf-copy" id="s3copy">
+            <div data-state-only="problem">
+              <h2 class="t-headline">المسافة جزء من المشكلة</h2>
+              <p class="t-secondary">كل طلب يتطلب رحلة إلى المخزن ثم عودة</p>
+            </div>
+            <div data-state-only="after">
+              <h2 class="t-headline">المخزن بجانب المحطة</h2>
+              <p class="t-secondary">رحلة أقصر، وطابور أقصر</p>
+            </div>
+          </div>
+          <div class="pf-stage" id="s3stage" data-state="problem">
+            <div class="pf-path" id="s3path" data-from="station" data-to="store"></div>
+            <div class="pf-node" data-node="station" data-pos="0.78,0.2"><span class="t-caption">المحطة</span></div>
+            <div class="pf-node" data-node="store" data-pos="0.24,0.82" data-pos-after="0.4,0.2"><span class="t-caption">المخزن</span></div>
+            <div class="pf-queue" id="s3q" data-at="station">
+              <span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span><span class="pf-q"></span>
+            </div>
+            <div class="pf-hotspot" id="s3hot" data-at="station,store" data-state-only="problem"><span class="pf-tag">رحلة طويلة</span></div>
+            <span class="pf-traveler" id="s3walker" data-at="station"></span>
+          </div>
+          <div class="pf-counters" id="s3counters">
+            <div class="pf-counter">
+              <span class="t-headline pf-counter-value" id="s3steps">0</span>
+              <span class="t-caption">خطوات لكل طلب</span>
+            </div>
+            <div class="pf-counter">
+              <span class="t-headline pf-counter-value" id="s3wait">0</span>
+              <span class="t-caption">في الانتظار</span>
+            </div>
+            <span class="pf-tag">أرقام افتراضية للتوضيح</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="g-chrome-bottom" id="chromeBottom">
+        <span class="t-credit">عرض توضيحي للقالب</span>
+        <span class="t-handle">@your_handle</span>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // 1 line · neutral — input pace equals service pace: nothing waits
+      MS.flow.place("#s1stage");
+      MS.enter.maskReveal(tl, "#s1copy", 0, { start: 0.6, duration: 0.8 });
+      MS.enter.staggerBuild(tl, "#s1stage .pf-node", 0.1, { stagger: 0.12 });
+      MS.enter.lineDraw(tl, "#s1stage .pf-link", 0.35);
+      MS.enter.fadeScale(tl, "#s1counters", 0.5);
+      MS.flow.flowTokens(tl, "#s1stage", 0.8, {
+        path: ["in", "work", "out"], tokens: ".s1t", inEvery: 0.9, serviceEvery: 0.8,
+        travel: 0.6, until: 5, queue: "#s1q", counter: "#s1n"
+      });
+      MS.exit.fadeOut(tl, "#s1 .g", 4.65);
+
+      // 2 line · problem — input every 0.5s, the step releases one every 1.3s
+      MS.flow.place("#s2stage");
+      MS.enter.rtlSlide(tl, "#s2copy", 5.1);
+      MS.enter.staggerBuild(tl, "#s2stage .pf-node", 5.1, { stagger: 0.1 });
+      MS.enter.lineDraw(tl, "#s2stage .pf-link", 5.3);
+      MS.enter.fadeScale(tl, "#s2counters", 5.4);
+      MS.flow.flowTokens(tl, "#s2stage", 5.8, {
+        path: ["in", "work", "out"], tokens: ".s2t", inEvery: 0.5, serviceEvery: 1.3,
+        travel: 0.6, until: 12.5, queue: "#s2q", counter: "#s2n"
+      });
+      MS.enter.fadeScale(tl, "#s2hot", 9.6);
+      MS.exit.fadeOut(tl, "#s2 .g", 12.15);
+
+      // 3 floor · problem → after — travel, then the same stage improves
+      MS.flow.place("#s3stage");
+      MS.enter.rtlSlide(tl, "#s3copy", 12.6);
+      MS.enter.fadeScale(tl, "#s3stage .pf-node", 12.6);
+      MS.enter.fadeScale(tl, "#s3walker", 12.9);
+      MS.enter.fadeScale(tl, "#s3counters", 13.0);
+      var trips = MS.flow.pathTrace(tl, "#s3path", 13.4, { traveler: "#s3walker", trips: 2, leg: 1.1 });
+      MS.flow.countTo(tl, "#s3steps", 0, 12, 13.4, { duration: trips[0] - 13.4, ease: "none" });
+      MS.flow.countTo(tl, "#s3steps", 12, 24, trips[0], { duration: trips[1] - trips[0], ease: "none" });
+      MS.flow.queueBuild(tl, "#s3q", [[14.6, 1], [15.8, 2], [17.0, 3], [18.2, 4]], { counter: "#s3wait" });
+      MS.enter.fadeScale(tl, "#s3hot", 16.2);
+
+      MS.flow.stateMorph(tl, "#s3stage", 18.6, { duration: 1.4 });
+      MS.flow.pathTrace(tl, "#s3path", 20.2, { traveler: "#s3walker", trips: 2, leg: 0.55, state: "after", draw: false });
+      MS.flow.countTo(tl, "#s3steps", 24, 10, 20.2, { duration: 1.0 });
+      MS.flow.queueBuild(tl, "#s3q", [[20.6, 3], [21.5, 2], [22.4, 1]], { counter: "#s3wait", from: 4 });
+
+      MS.applyReviewAttributes(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
